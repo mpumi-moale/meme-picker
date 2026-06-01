@@ -171,7 +171,7 @@ const catsData = [
     },
 ]
 
-
+// gets an array of the cats emotiontags
 function getEmotionsArray(cats){
     const emotionsArray = []
     for (let cat of cats){
@@ -182,16 +182,14 @@ function getEmotionsArray(cats){
     return emotionsArray
 }
 
-function renderEmotionsRadios(cats) {
-  let html = ''
-  const emotions = getEmotionsArray(cats)
-  console.log(emotions)
-  for(let emotion of emotions ) {
-    html += `<p> ${emotion} </p>`
-  }
-  emotionsRadio.innerHTML = html
-
-
+// shows the array of emotiontags on the browser
+function renderEmotionsRadios(cats){
+    let radioItems = ``
+    const emotions = getEmotionsArray(cats)
+    for (let emotion of emotions){
+        radioItems += `<p>${emotion}</p>`
+    }
+    emotionRadios.innerHTML = radioItems
 }
 
 console.log(renderEmotionsRadios(catsData))
