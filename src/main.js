@@ -3,10 +3,12 @@ import { catsData } from './data'
 const emotionsRadio = document.getElementById('emotion-radios')
 
 
-// shows which radio button is being selected
-emotionsRadio.addEventListener('change', function(e) {
-    console.log(e.target.id)
-})
+emotionsRadio.addEventListener('change', highlightCheckedOption)
+
+
+function highlightCheckedOption(e) {
+    document.getElementById(e.target.id).classList.add('highlight')
+}
 
 // gets an array of the cats emotiontags
 function getEmotionsArray(cats){
