@@ -7,7 +7,13 @@ function getEmotionsArray(cats){
     const emotionsArray = []
     for (let cat of cats){
         for (let emotion of cat.emotionTags){
-            emotionsArray.push(emotion)
+            // remove duplicates from the array
+            if(emotionsArray.includes(emotion)) {
+                console.log("no duplicare")
+            } else {
+                 emotionsArray.push(emotion)
+            }
+           
         }
     }
     return emotionsArray
