@@ -8,12 +8,9 @@ function getEmotionsArray(cats){
     for (let cat of cats){
         for (let emotion of cat.emotionTags){
             // remove duplicates from the array
-            if(emotionsArray.includes(emotion)) {
-                console.log("no duplicare")
-            } else {
-                 emotionsArray.push(emotion)
-            }
-           
+            if(!emotionsArray.includes(emotion)) {
+               emotionsArray.push(emotion)
+            } 
         }
     }
     return emotionsArray
