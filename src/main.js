@@ -3,11 +3,20 @@ import { catsData } from './data'
 const emotionsRadio = document.getElementById('emotion-radios')
 
 
+// listens to and change of radio inputs and calls the highlight function
 emotionsRadio.addEventListener('change', highlightCheckedOption)
 
 
+// adds css to the selected radio input
 function highlightCheckedOption(e) {
-    document.getElementById(e.target.id).classList.add('highlight')
+
+    // removes highlight when radio is not selected
+    const radios = document.getElementsByClassName('radio')
+
+    for (let radio of radios) {
+        radio.classList.remove('highlight')
+    }
+    document.getElementById(e.target.id).parentElement.classList.add('highlight')
 }
 
 // gets an array of the cats emotiontags
