@@ -2,6 +2,8 @@ import { catsData } from './data'
 
 const emotionsRadio = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
+const gifsOnlyOption = document.getElementById('gifs-only-option')
+
 
 
 // listens to and change of radio inputs and calls the highlight function
@@ -25,7 +27,9 @@ function highlightCheckedOption(e) {
 
 // get the selected emotions
 function getMatchingCatsArray() {
-    
+    const isGif = gifsOnlyOption.checked
+    console.log(isGif)
+
     // checks if a radio button has been checked
     if (document.querySelector('input[type="radio"]:checked')) {
         const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
@@ -33,8 +37,6 @@ function getMatchingCatsArray() {
     }
     
 }
-
-
 
 // gets an array of the cats emotiontags
 function getEmotionsArray(cats){
