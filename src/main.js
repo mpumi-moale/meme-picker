@@ -27,13 +27,16 @@ function highlightCheckedOption(e) {
 
 // get the selected emotions
 function getMatchingCatsArray() {
-    const isGif = gifsOnlyOption.checked
-    console.log(isGif)
-
     // checks if a radio button has been checked
     if (document.querySelector('input[type="radio"]:checked')) {
         const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
-        console.log(selectedEmotion)
+        const isGif = gifsOnlyOption.checked
+
+        // matching cats with the same emotion tags
+        const matchingCatsArray = catsData.filter(function(cat) {
+            return cat.emotionTags.includes(selectedEmotion)
+        })
+        console.log(matchingCatsArray)
     }
     
 }
