@@ -36,6 +36,7 @@ function getMatchingCatsArray() {
         const matchingCatsArray = catsData.filter(function(cat) {
             return cat.emotionTags.includes(selectedEmotion)
         })
+        
         console.log(matchingCatsArray)
     }
     
