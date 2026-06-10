@@ -51,6 +51,9 @@ function getSingleCatObject() {
 
     if(catsArray.length === 1) {
          console.log(catsArray[0])
+    } else {
+        const randomNumber = Math.floor(Math.random() * catsArray.length)
+        console.log(catsArray[randomNumber])
     }
    
 }
