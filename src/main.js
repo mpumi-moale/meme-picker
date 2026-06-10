@@ -10,7 +10,7 @@ const gifsOnlyOption = document.getElementById('gifs-only-option')
 emotionsRadio.addEventListener('change', highlightCheckedOption)
 
 // btn to get all matching arrays
-getImageBtn.addEventListener('click', getMatchingCatsArray)
+getImageBtn.addEventListener('click', renderCat)
 
 
 // adds css to the selected radio input
@@ -38,14 +38,22 @@ function getMatchingCatsArray() {
                 return cat.emotionTags.includes(selectedEmotion) && cat.isGif
             } else {
                 return cat.emotionTags.includes(selectedEmotion)
-            }
-
-            
+            } 
         })
 
-        console.log(matchingCatsArray)
+        return matchingCatsArray
     }
     
+}
+
+function getSingleCatObject() {
+    const catsArray = getMatchingCatsArray()
+    console.log(catsArray)
+}
+
+
+function renderCat() {
+    getSingleCatObject()
 }
 
 // gets an array of the cats emotiontags
