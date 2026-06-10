@@ -48,7 +48,11 @@ function getMatchingCatsArray() {
 
 function getSingleCatObject() {
     const catsArray = getMatchingCatsArray()
-    console.log(catsArray)
+
+    if(catsArray.length === 1) {
+         console.log(catsArray[0])
+    }
+   
 }
 
 
