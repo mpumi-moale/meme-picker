@@ -5,6 +5,7 @@ const getImageBtn = document.getElementById('get-image-btn')
 const gifsOnlyOption = document.getElementById('gifs-only-option')
 const memeModel = document.getElementById('meme-modal')
 const memeModelInner = document.getElementById('meme-modal-inner')
+const memeModalCloseBtn = document.getElementById('meme-modal-close-btn')
 
 
 
@@ -14,6 +15,14 @@ emotionsRadio.addEventListener('change', highlightCheckedOption)
 // btn to get all matching arrays
 getImageBtn.addEventListener('click', renderCat)
 
+
+memeModalCloseBtn.addEventListener('click', closeModel)
+
+
+// close the model
+function closeModel() {
+    memeModel.style = 'none'
+}
 
 // adds css to the selected radio input
 function highlightCheckedOption(e) {
