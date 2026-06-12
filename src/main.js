@@ -7,22 +7,13 @@ const memeModel = document.getElementById('meme-modal')
 const memeModelInner = document.getElementById('meme-modal-inner')
 const memeModalCloseBtn = document.getElementById('meme-modal-close-btn')
 
-
-
 // listens to and change of radio inputs and calls the highlight function
 emotionsRadio.addEventListener('change', highlightCheckedOption)
 
-// btn to get all matching arrays
-getImageBtn.addEventListener('click', renderCat)
-
-
 memeModalCloseBtn.addEventListener('click', closeModel)
 
-
-// close the model
-function closeModel() {
-    memeModel.style = 'none'
-}
+// btn to get all matching arrays
+getImageBtn.addEventListener('click', renderCat)
 
 // adds css to the selected radio input
 function highlightCheckedOption(e) {
@@ -34,6 +25,37 @@ function highlightCheckedOption(e) {
         radio.classList.remove('highlight')
     }
     document.getElementById(e.target.id).parentElement.classList.add('highlight')
+}
+
+// close the model
+function closeModel() {
+    memeModel.style = 'none'
+}
+
+function renderCat() {
+    const catObject = getSingleCatObject()
+
+    memeModelInner.innerHTML = `
+            <img 
+                class="cat-img" 
+                src="./src/assets/${catObject.image}"
+                alt="${catObject.alt}"
+                >
+    
+    `
+    memeModel.style.display = 'flex'
+}
+
+function getSingleCatObject() {
+    const catsArray = getMatchingCatsArray()
+
+    if(catsArray.length === 1) {
+         return catsArray[0]
+    } else {
+        const randomNumber = Math.floor(Math.random() * catsArray.length)
+        return catsArray[randomNumber]
+    }
+   
 }
 
 // get the selected emotions
@@ -55,33 +77,6 @@ function getMatchingCatsArray() {
         return matchingCatsArray
     }
     
-}
-
-function getSingleCatObject() {
-    const catsArray = getMatchingCatsArray()
-
-    if(catsArray.length === 1) {
-         return catsArray[0]
-    } else {
-        const randomNumber = Math.floor(Math.random() * catsArray.length)
-        return catsArray[randomNumber]
-    }
-   
-}
-
-
-function renderCat() {
-    const catObject = getSingleCatObject()
-
-    memeModelInner.innerHTML = `
-            <img 
-                class="cat-img" 
-                src="./src/assets/${catObject.image}"
-                alt="${catObject.alt}"
-                >
-    
-    `
-    memeModel.style.display = 'flex'
 }
 
 // gets an array of the cats emotiontags
